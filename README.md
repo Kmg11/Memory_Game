@@ -18,6 +18,7 @@ Memory game created with vanilla javascript only with timing system and results 
 - Timing system
 - Results system
 - Sound system
+- Save all results in local storage
 
 ---
 
