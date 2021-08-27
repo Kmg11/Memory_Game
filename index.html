@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Memory Game</title>
+		<link rel="icon" href="imgs/icon.png" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/all.css" />
+	</head>
+	<body>
+		<div class="control-buttons">
+			<span>Start Game</span>
+			<div class="results">
+				<header>
+					<div class="player-name">Username</div>
+					<div class="player-timer">Player Time</div>
+					<div class="player-tries">Wrong Tries</div>
+					<div class="player-result">Game Result</div>
+				</header>
+				<div class="winners">
+					<h3>Winners</h3>
+				</div>
+				<div class="losers">
+					<h3>Losers</h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="game-status">
+			<span></span>
+			<button>Play Again</button>
+			<div class="results">
+				<header>
+					<div class="player-name">Username</div>
+					<div class="player-timer">Player Time</div>
+					<div class="player-tries">Wrong Tries</div>
+					<div class="player-result">Game Result</div>
+				</header>
+				<div class="winners">
+					<h3>Winners</h3>
+				</div>
+				<div class="losers">
+					<h3>Losers</h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="info-container">
+			<div class="name">Username: <span></span></div>
+			<div class="timer">
+				<span class="minutes"></span> : <span class="seconds"></span>
+			</div>
+			<div class="tries">Wrong Tries: <span>0</span></div>
+		</div>
+
+		<div class="memory-game-blocks">
+			<div class="game-block" data-tech="angular">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-angular"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="angular">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-angular"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="vuejs">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-vuejs"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="vuejs">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-vuejs"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="react">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-react"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="react">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-react"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="css3">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-css3-alt"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="css3">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-css3-alt"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="github">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-github"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="github">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-github"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="gulpjs">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-gulp"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="gulpjs">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-gulp"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="html5">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-html5"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="html5">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-html5"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="python">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-python"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="python">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-python"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="sass">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-sass"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="sass">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-sass"></i>
+				</div>
+			</div>
+
+			<div class="game-block" data-tech="js">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-js-square"></i>
+				</div>
+			</div>
+			<div class="game-block" data-tech="js">
+				<div class="face front"></div>
+				<div class="face back">
+					<i class="fab fa-js-square"></i>
+				</div>
+			</div>
+		</div>
+
+		<!-- Start Music -->
+
+		<audio
+			id="background-music"
+			type="audio/mp3"
+			src="sounds/background.mp3"
+			preload="auto"
+		></audio>
+		<audio id="success" src="sounds/win.mp3" preload="auto"></audio>
+		<audio id="fail" src="sounds/fail.mp3" preload="auto"></audio>
+
+		<audio id="final-win" src="sounds/final-win.mp3" preload="auto"></audio>
+		<audio id="final-fail" src="sounds/final-fail.mp3" preload="auto"></audio>
+
+		<!-- End Music -->
+
+		<script src="js/main.js"></script>
+	</body>
+</html>

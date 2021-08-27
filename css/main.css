@@ -1,0 +1,257 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Tahoma, sans-serif;
+	overflow: hidden;
+}
+
+.control-buttons,
+.game-status {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	padding: 20px;
+	z-index: 2;
+	background-color: rgba(3, 169, 244, 0.9);
+	transition: opacity 0.5s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.control-buttons.hidden,
+.game-status {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.game-status.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+.control-buttons > span,
+.game-status > button {
+	background-color: #f44336;
+	color: #fff;
+	padding: 15px 25px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 30px;
+}
+
+.game-status > span,
+.game-status > button {
+	display: block;
+	text-align: center;
+}
+
+.game-status > span {
+	top: 30%;
+	font-size: 200px;
+	font-weight: 400;
+	letter-spacing: 15px;
+	padding: 10px 0 0;
+	transform: translateY(-100%);
+	transition: transform 0.5s;
+}
+
+.game-status > span.show {
+	transform: translateY(0);
+}
+
+.game-status > button {
+	margin: 0 auto 20px;
+	transform: translateY(calc(100vh - 340px));
+	transition: transform 0.5s;
+}
+
+.game-status > button.show {
+	transform: translateY(0);
+}
+
+.results {
+	padding: 20px 10px;
+	overflow: auto;
+}
+
+.results .losers {
+	display: flex;
+	flex-direction: column;
+}
+
+.game-status .results {
+	transform: translateY(calc(100vh - 340px));
+	transition: transform 0.5s;
+}
+
+.game-status .results.show {
+	transform: translateY(0);
+}
+
+.results header,
+.results .player,
+.info-container {
+	background-color: #f6f6f6;
+	font-size: 24px;
+	border: 2px solid #2196f3;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.results header > div,
+.results .player > div {
+	flex: 1;
+	text-align: center;
+}
+
+.results header {
+	padding: 15px 20px;
+	background-color: #ddd;
+	display: none;
+}
+
+.results .player,
+.info-container {
+	padding: 20px;
+}
+
+.results .player,
+.info-container {
+	margin: 20px auto 0;
+}
+
+.results header,
+.results .player {
+	width: 800px;
+}
+
+.results h3 {
+	color: #fff;
+	font-size: 20px;
+	letter-spacing: 2px;
+	margin: 20px 10px 0;
+	display: none;
+}
+
+.results h3.show {
+	display: block;
+}
+
+.info-container {
+	width: 1000px;
+}
+
+.results .player .player-tries span {
+	color: #ff0047;
+}
+
+.memory-game-blocks {
+	width: 1100px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px auto;
+}
+
+.memory-game-blocks.no-clicking {
+	pointer-events: none;
+}
+
+.memory-game-blocks .game-block {
+	height: 200px;
+	transition: transform 0.5s;
+	transform-style: preserve-3d;
+	cursor: pointer;
+	position: relative;
+	flex: 1 0 200px;
+	margin: 0 10px 20px;
+	/* transform: rotateY(180deg); */
+}
+
+.memory-game-blocks .game-block.is-flipped,
+.memory-game-blocks .game-block.has-match {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	pointer-events: none;
+}
+
+.memory-game-blocks .game-block .face {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	backface-visibility: hidden;
+	border: 5px solid #2196f3;
+}
+
+.memory-game-blocks .game-block .front {
+	background-color: #333;
+	line-height: 200px;
+}
+
+.memory-game-blocks .game-block .front::before {
+	content: "?";
+	color: #fff;
+	font-size: 140px;
+	font-weight: bold;
+}
+
+.memory-game-blocks .game-block .back {
+	color: #fff;
+	background-color: #222 /* #687088 */;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.memory-game-blocks .game-block .back i {
+	margin: auto;
+	margin-top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	font-size: 100px;
+}
+
+.memory-game-blocks .game-block[data-tech="angular"] .back i {
+	color: #b52e31;
+}
+.memory-game-blocks .game-block[data-tech="vuejs"] .back i {
+	color: #42b883;
+}
+.memory-game-blocks .game-block[data-tech="react"] .back i {
+	color: #00d8ff;
+}
+.memory-game-blocks .game-block[data-tech="css3"] .back i {
+	color: #00afe1;
+}
+.memory-game-blocks .game-block[data-tech="github"] .back i {
+	color: #bd2c00;
+}
+.memory-game-blocks .game-block[data-tech="gulpjs"] .back i {
+	color: #bd2c00;
+}
+.memory-game-blocks .game-block[data-tech="html5"] .back i {
+	color: #e34f26;
+}
+.memory-game-blocks .game-block[data-tech="python"] .back i {
+	color: #ffde57;
+}
+.memory-game-blocks .game-block[data-tech="sass"] .back i {
+	color: #cf2387;
+}
+.memory-game-blocks .game-block[data-tech="js"] .back i {
+	color: #ffd400;
+}
